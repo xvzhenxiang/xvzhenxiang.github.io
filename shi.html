@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+        <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        /* 头部容器：logo + 搜索框横向并排 */
+        .header-wrap{
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+            gap:20px; /* logo和搜索框之间距离 */
+            padding:15px 20px;
+        }
+        .logo-img{
+            width:120px;
+            height:120px;
+        }
+        .search-box{
+            display:flex;
+        }
+        .search-input{
+            padding:10px 14px;
+            font-size:16px;
+            border:1px solid #aaa;
+            border-radius:4px 0 0 4px;
+            outline:none;
+        }
+        /* 提示文字暗色灰色 */
+        .search-input::placeholder{
+            color:#555;
+        }
+        .search-btn{
+            padding:0 18px;
+            border:none;
+            background:#2255bb;
+            color:white;
+            border-radius:0 4px 4px 0;
+            cursor:pointer;
+        }
+        img{
+            display:block;
+            margin: 20px auto;
+            width: 200px;
+            
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色牌：石馨冉</title>
+</head>
+<body>
+        <div class="header-wrap">
+    
+        <img class="logo-img" src="logo.jpg" alt="八班神坛大乱斗">
+    
+        <div class="search-box">
+            <input type="text" class="search-input" id="keyword" placeholder="搜索角色/功能牌">
+            <button class="search-btn" onclick="goSearch()">搜索</button>
+        </div>
+    </div>
+    <hr>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<h1>角色：石馨冉</h1>
+<img src="shixinran.png">
+ <script>
+function goSearch(){
+    let keyword = document.getElementById("keyword").value.trim();
+    if(keyword === "易睿辰"){
+        location.href = "yi.html";
+        
+    }else{ if(keyword === "郭浩然"){location.href = "guo.html";}else{ if(keyword === "张岩扉"){location.href = "zhangyan.html";}else{ if(keyword === "石馨冉"){location.href = "shi.html";}else{ if(keyword === "柴妤㻛"){location.href = "chai.html";}else{ if(keyword === "郦睿垚"){location.href = "li.html";}else{ if(keyword === "马若洋"){location.href = "ma.html";}else{ if(keyword === "潘威恒"){location.href = "pan.html";}else{ if(keyword === "徐振翔"){location.href = "xu.html";}else{ if(keyword === "赵州无缺"){location.href = "zhaozhou.html";}else{ if(keyword === "朱翊涵"){location.href = "zhangyan.html";}else{ if(keyword === "梧桐"){location.href = "egg.html";}
+        else{alert("没有找到该角色");
+    }}}}}}}}}}}}
+}
+</script>
+
+</body>\
+</html>

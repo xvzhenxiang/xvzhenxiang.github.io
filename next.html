@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>写检讨</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    background:#000;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-family:system-ui, sans-serif;
+}
+textarea{
+    width:700px;
+    height:320px;
+    font-size:18px;
+    padding:12px;
+    background:#111;
+    color:white;
+    border:1px solid #666;
+    resize:none;
+    margin-bottom:16px;
+}
+.info{
+    font-size:20px;
+    margin-bottom:12px;
+}
+button{
+    padding:10px 30px;
+    font-size:18px;
+    background:#2266dd;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+/* 警告提示，默认隐藏 */
+.warning{
+    color:#ff3333;
+    font-size:26px;
+    font-weight:bold;
+    margin-top:20px;
+    display:none;
+    animation: shake 0.1s infinite alternate;
+}
+@keyframes shake{
+    from{transform: translateX(-2px);}
+    to{transform: translateX(2px);}
+}
+</style>
+</head>
+<body>
+<div class="info">检讨字数：<span id="count">0</span> / 1000</div>
+<textarea id="txt" placeholder="请输入1000个中文字符..."></textarea>
+<button id="btn">写好了</button>
+<div class="warning" id="warn">没写完不许下去上体育课！</div>
+
+<script>
+const textarea = document.getElementById('txt');
+const countDom = document.getElementById('count');
+const btn = document.getElementById('btn');
+const warnDom = document.getElementById('warn');
+// 修改这里为你的目标网页
+const targetUrl = "next.html";
+
+// 统计中文字符（中文、中文标点）
+function countChinese(str){
+    const arr = str.match(/[\u4e00-\u9fa5\u3000-\u303f\uff00-\uffef]/g);
+    return arr ? arr.length : 0;
+}
+
+textarea.addEventListener('input',()=>{
+    const num = countChinese(textarea.value);
+    countDom.innerText = num;
+    // 输入新内容时自动隐藏警告
+    warnDom.style.display = "none";
+})
+
+btn.onclick = function(){
+    const num = countChinese(textarea.value);
+    if(num >= 1000){
+        location.href = targetUrl;
+        localStorage.removeItem("hasVisitedPage");
+    }else{
+        // 显示抖动红色警告，替代alert弹窗
+        warnDom.style.display = "block";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>警告</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    background:#000;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.text{
+    font-size:60px;
+    color:#ff2222;
+    font-weight:bold;
+    /* 闪烁动画 */
+    animation: blink 0.3s infinite alternate, shake 0.08s infinite;
+}
+/* 闪烁 */
+@keyframes blink{
+    from{opacity:1;}
+    to{opacity:0.2;}
+}
+/* 抖动 */
+@keyframes shake{
+    0%{transform:translate(1px,1px);}
+    25%{transform:translate(-1px,-1px);}
+    50%{transform:translate(-1px,1px);}
+    75%{transform:translate(1px,-1px);}
+}
+</style>
+</head>
+<body>
+<div class="text">你惹怒了吴勇</div>
+
+<script>
+const targetPage = "next.html";
+
+setTimeout(()=>{
+    if(localStorage.getItem("hasVisitedPage")){
+        location.href = targetPage;
+    } else {
+        localStorage.setItem("hasVisitedPage", "true");
+        location.href = targetPage;
+    }
+},6000);
+</script>
+</body>
+</html>
